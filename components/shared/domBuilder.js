@@ -15,7 +15,6 @@ const domBuilder = () => {
   </div>`;
 
   renderToDOM('#app', domString);
-  console.warn('dom');
 };
 
 export default domBuilder;
