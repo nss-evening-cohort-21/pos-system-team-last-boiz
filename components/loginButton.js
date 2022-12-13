@@ -2,8 +2,8 @@ import { signIn } from '../utils/auth';
 
 // GOOGLE LOGIN BUTTON
 const loginButton = () => {
-  const domString = '<button id="google-auth" class="btn btn-danger">GOOGLE LOGIN</button>';
-  document.querySelector('#login-button').innerHTML = domString;
+  const domString = '<h1>Welcome, user!</h1></br><button id="google-auth" class="btn btn-danger">GOOGLE LOGIN</button>';
+  document.querySelector('#app').innerHTML = domString;
   document.querySelector('#google-auth').addEventListener('click', signIn);
 };
 
