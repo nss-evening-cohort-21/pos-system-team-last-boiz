@@ -1,30 +1,40 @@
 import renderToDOM from '../utils/renderToDom';
 import clearDom from '../utils/clearDom';
 
+const typeArray = ['Walk-in', 'Phone'];
+
 const createOrderForm = (obj = {}) => {
   clearDom();
-  const domString = `
+  let domString = `
+  
     <form id="${obj.firebaseKey ? `update-order--${obj.firebaseKey}` : 'submit-order'}" class="mb-4">
       <div class="form-group">
         <label for="title">Order Name</label>
-        <input type="text" class="form-control" id="title" aria-describedby="cardTitle" placeholder="Enter Card Title" value="${obj.title || ''}" required>
+        <input type="text" class="form-control" id="order-name" aria-describedby="cardTitle" placeholder="Enter Order Name" value="${obj.name || ''}" required>
       </div>
       <div class="form-group">
-        <label for="description">Category</label>
-        <textarea class="form-control" placeholder="Card Description" id="category" style="height: 100px">${obj.category || ''}</textarea>
+        <label for="description">Phone</label>
+        <textarea class="form-control" placeholder="Phone Number" id="phone_number" style="height: 20px">${obj.phone_number || ''}</textarea>
       </div>
-    
-      <div class="form-group">
-        <label for="price">Definition</label>
-        <input type="text" class="form-control" id="definition" placeholder="Definition" value="${obj.definition || ''}" required>
-      </div>
-      
-  
-      <button type="submit" id="submit-card-btn" class="btn btn-primary">Submit Card
-      </button>
-    </form>`;
 
-  renderToDOM('#form-container', domString);
+      <div class="form-group">
+      <label for="price">Email</label>
+      <input type="text" class="form-control" id="order-email" placeholder="Email" value="${obj.email || ''}" required>
+    </div>
+    
+        <label for="type">Type</label> 
+      <select id="type" class="form-select" aria-label="Default select example" required>
+      </div>`;
+
+  typeArray.forEach((type) => {
+    domString += `
+           <option 
+             value="${type}" ${type === obj.order_type ? 'selected' : ''}>${type}</option>`;
+  });
+
+  domString += `</select><button type="submit" class="btn btn-primary" id="submit-order-btn">Submit Order
+    </button></form>`;
+  renderToDOM('#create-order-container', domString);
 };
 
 export default createOrderForm;

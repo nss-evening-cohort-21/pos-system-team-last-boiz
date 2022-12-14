@@ -8,7 +8,7 @@ const domBuilder = () => {
     <div id="home-page"></div>
     <div id="view-orders"></div>
     <div id="order-details"></div>
-    <div id="create-order"></div>
+    <div id="create-order-container"></div>
     <div id="create-item"></div>
     <div id="close-order"></div>
     <div id="revenue"></div>
