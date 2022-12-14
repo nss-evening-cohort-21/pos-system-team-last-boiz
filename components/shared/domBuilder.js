@@ -6,7 +6,7 @@ const domBuilder = () => {
   <div id="main-container">
     <div id="login-page"></div>
     <div id="home-page"></div>
-    <div id="view-orders"></div>
+    <div id="store"></div>
     <div id="order-details"></div>
     <div id="create-order-container"></div>
     <div id="create-item"></div>
