@@ -1,4 +1,3 @@
-
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
     if (e.target.id.includes('delete-item')) {
@@ -25,5 +24,6 @@ const domEvents = () => {
     if (e.target.id.includes('close-order')) {
       // const [, firebaseKey] = (e.target.id.split('--'));
     }
-   }
+  });
+};
 export default domEvents;
