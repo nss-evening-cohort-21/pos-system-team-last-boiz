@@ -4,6 +4,8 @@ import showHomePage from '../pages/homePage';
 import navBar from '../components/shared/navBar';
 import domEvents from '../events/domEvents';
 import formEvents from '../events/formEvents';
+import { showOrders } from '../pages/viewOrder';
+import { getOrders } from '../api/orderData';
 // import navigationEvents from '../events/navigationEvents';
 
 const startApp = () => {
@@ -16,4 +18,5 @@ const startApp = () => {
   // navigationEvents(); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
 };
 
+getOrders().then((order) => showOrders(order));
 export default startApp;

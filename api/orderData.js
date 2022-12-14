@@ -5,8 +5,8 @@ const endpoint = client.databaseURL;
 // Create New Order //
 
 // GET ORDERS
-const getOrders = (userId) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/orders.json?orderBy="uid"&equalTo="${userId}"`, {
+const getOrders = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/order.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
