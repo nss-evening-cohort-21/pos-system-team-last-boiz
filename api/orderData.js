@@ -44,7 +44,7 @@ const createOrder = (payload) => new Promise((resolve, reject) => {
 
 // DELETE Order
 const deleteOrder = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/item/${firebaseKey}.json`, {
+  fetch(`${endpoint}/order/${firebaseKey}.json`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',

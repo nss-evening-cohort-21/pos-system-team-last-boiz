@@ -6,7 +6,7 @@ const typeArray = ['Walk-in', 'Phone'];
 const createOrderForm = (obj = {}) => {
   clearDom();
   let domString = `
-  
+
     <form id="${obj.firebaseKey ? `edit-order--${obj.firebaseKey}` : 'submit-order'}" class="mb-4">
       <div class="form-group">
         <label for="title">Order Name</label>
