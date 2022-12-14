@@ -2,8 +2,6 @@ import client from '../utils/client';
 
 const endpoint = client.databaseURL;
 
-// Create New Order //
-
 // GET ORDERS
 const getOrders = () => new Promise((resolve, reject) => {
   fetch(`${endpoint}/order.json`, {
@@ -13,13 +11,9 @@ const getOrders = () => new Promise((resolve, reject) => {
     },
   })
     .then((response) => response.json())
-    .then((data) => {
-      console.warn(data);
-      resolve(Object.values(data));
-    })
-    .catch(reject);
-});
 
+
+// CREATE AN ITEM
 const createOrder = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/order.json`, {
     method: 'POST',
@@ -32,6 +26,20 @@ const createOrder = (payload) => new Promise((resolve, reject) => {
     .then((data) => resolve(data))
     .catch(reject);
 });
+
+// DELETE ITEMS
+const deleteOrder = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/item/${firebaseKey}.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve((data)))
+    .catch(reject);
+});
+
 
 // Update a Order//
 const updateOrder = (payload) => new Promise((resolve, reject) => {
