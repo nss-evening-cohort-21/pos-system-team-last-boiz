@@ -8,10 +8,10 @@ const formEvents = () => {
     if (e.target.id.includes('submit-order-btn')) {
       console.warn('CLICKED SUBMIT ORDER', e.target.id);
       const payload = {
-        name: document.querySelector('#name').value,
+        name: document.querySelector('#order-name').value,
         phone_number: document.querySelector('#phone_number').value,
-        email: document.querySelector('#email').value,
-        order_type: document.querySelector('#order_type').value,
+        email: document.querySelector('#order-email').value,
+        order_type: document.querySelector('#order-type').value,
       };
       createOrder(payload).then(({ name }) => {
         console.warn(name);
