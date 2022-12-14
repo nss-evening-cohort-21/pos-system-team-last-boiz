@@ -6,7 +6,7 @@ import domEvents from '../events/domEvents';
 import formEvents from '../events/formEvents';
 import { showOrders } from '../pages/viewOrder';
 import { getOrders } from '../api/orderData';
-// import navigationEvents from '../events/navigationEvents';
+import navigationEvents from '../events/navigationEvents';
 
 const startApp = () => {
   domBuilder(); // BUILD THE DOM
@@ -15,7 +15,7 @@ const startApp = () => {
   formEvents(); // ADD FORM EVENT LISTENTERS TO THE DOM
   navBar(); // DYNAMICALLY ADD THE NAV
   logoutButton(); // ADD THE LOGOUT BUTTON COMPONENT
-  // navigationEvents(); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
+  navigationEvents(); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
 };
 
 getOrders().then((order) => showOrders(order));

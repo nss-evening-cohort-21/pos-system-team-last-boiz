@@ -11,10 +11,10 @@ const navBar = () => {
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#" id="view-orders">View Orders</a>
+            <a class="nav-link" href="#" id="view-order-btn">View Orders</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" id="create-order">Create an Order</a>
+            <a class="nav-link" href="#" id="create-order-btn">Create an Order</a>
           </li>
         </ul>
         <span class="navbar-text">

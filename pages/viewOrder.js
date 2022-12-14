@@ -24,9 +24,6 @@ const showOrders = (array) => {
           <a href="#" id="edit-vocab-btn--${obj.firebaseKey}" class="card-link">Edit</a>
           <a href="#" id="delete-vocab-btn--${obj.firebaseKey}" class="card-link">Delete</a>
         </div>
-        <div class="card-footer text-muted">
-          ${obj.date_submitted}
-        </div>
        </div>`;
   });
   renderToDOM('#store', domString);
