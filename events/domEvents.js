@@ -1,3 +1,6 @@
+import { getOrders } from '../api/orderData';
+import { showOrders } from '../pages/viewOrder';
+
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
     if (e.target.id.includes('delete-item')) {
@@ -7,8 +10,9 @@ const domEvents = () => {
         // const [, firebaseKey] = (e.target.id.split('--'));
       }
     }
-    if (e.target.id.includes('view-orders')) {
-      console.warn('View List');
+    if (e.target.id.includes('view-order-btn')) {
+      console.warn('View Order');
+      getOrders().then(showOrders);
     }
 
     // TODO: CLICK EVENT EDITING/UPDATING an order
