@@ -1,4 +1,4 @@
-import { deleteOrder, getOrders } from '../api/orderData';
+import { deleteOrder, getOrders, getSingleOrder } from '../api/orderData';
 import { showOrders } from '../pages/viewOrder';
 import createOrderForm from '../Forms/createOrderForm';
 

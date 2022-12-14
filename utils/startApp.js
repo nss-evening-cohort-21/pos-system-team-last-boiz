@@ -4,11 +4,9 @@ import showHomePage from '../pages/homePage';
 import navBar from '../components/shared/navBar';
 import domEvents from '../events/domEvents';
 import formEvents from '../events/formEvents';
-
-// import navigationEvents from '../events/navigationEvents';
+import navigationEvents from '../events/navigationEvents';
 import { getOrders } from '../api/orderData';
 import { showOrders } from '../pages/viewOrder';
-
 
 const startApp = () => {
   domBuilder(); // BUILD THE DOM
