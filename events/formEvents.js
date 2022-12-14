@@ -21,6 +21,18 @@ const formEvents = () => {
         });
       });
     }
+
+    if (e.target.id.includes('update-order-btn')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        name: document.querySelector('#order-name').value,
+        phone_number: document.querySelector('#phone_number').value,
+        email: document.querySelector('#order-email').value,
+        order_type: document.querySelector('#order-type').value,
+        firebaseKey
+      };
+      updateOrder(payload).then(() => getOrders().then(showOrders));
+    }
   });
 };
 

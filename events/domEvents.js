@@ -21,8 +21,10 @@ const domEvents = () => {
     }
 
     // TODO: CLICK EVENT EDITING/UPDATING an order
-    if (e.target.id.includes('edit-order')) {
-      // const [, firebaseKey] = e.target.id.split('--');
+    if (e.target.id.includes('update-order')) {
+      console.warn('edit');
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleOrder(firebaseKey).then(createOrderForm);
     }
 
     // CLICK EVENT FOR CREATING AN ORDER
