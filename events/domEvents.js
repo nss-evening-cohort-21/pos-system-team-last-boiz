@@ -1,5 +1,6 @@
-import { getOrders } from '../api/orderData';
+import { getOrders, getSingleOrder } from '../api/orderData';
 import { showOrders } from '../pages/viewOrder';
+import createOrderForm from '../Forms/createOrderForm';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -16,8 +17,10 @@ const domEvents = () => {
     }
 
     // TODO: CLICK EVENT EDITING/UPDATING an order
-    if (e.target.id.includes('edit-order')) {
-      // const [, firebaseKey] = e.target.id.split('--');
+    if (e.target.id.includes('update-order')) {
+      console.warn('edit');
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleOrder(firebaseKey).then(createOrderForm);
     }
 
     // TODO: CLICK EVENT FOR VIEW Word DETAILS
