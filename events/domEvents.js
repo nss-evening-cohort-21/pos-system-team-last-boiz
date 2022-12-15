@@ -22,7 +22,7 @@ const domEvents = () => {
     }
 
     // TODO: CLICK EVENT EDITING/UPDATING an order
-    if (e.target.id.includes('update-order')) {
+    if (e.target.id.includes('update-order-btn')) {
       console.warn('edit');
       const [, firebaseKey] = e.target.id.split('--');
       getSingleOrder(firebaseKey).then(createOrderForm);
