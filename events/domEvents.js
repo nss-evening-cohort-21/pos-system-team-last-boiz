@@ -1,6 +1,7 @@
 import { deleteOrder, getOrders, getSingleOrder } from '../api/orderData';
 import { showOrders } from '../pages/viewOrder';
 import createOrderForm from '../Forms/createOrderForm';
+import viewItems from '../pages/items';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -35,7 +36,8 @@ const domEvents = () => {
 
     // TODO: CLICK EVENT FOR VIEW Word DETAILS
     if (e.target.id.includes('order-details')) {
-      // const [, firebaseKey] = (e.target.id.split('--'));
+      const [, firebaseKey] = (e.target.id.split('--'));
+      getSingleOrder(firebaseKey).then(viewItems);
     }
 
     if (e.target.id.includes('close-order')) {

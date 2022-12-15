@@ -9,8 +9,8 @@ import clearDom from '../utils/clearDom';
 const viewItems = (array) => {
   clearDom();
 
-  const btnString = '<button class="btn btn-success btn-lg mb-4" id="add-items-btn">Add A Item</button>';
-  renderToDOM('#add-button', btnString);
+  const btnString = '<button class="btn btn-success btn-lg mb-4" id="add-items-btn">Add A Item</button><button class="btn btn-primary btn-lg mb-4" id="payment-btn">Go To Payment</button>';
+  renderToDOM('#order-details', btnString);
 
   let domString = '';
   array.forEach((item) => {
