@@ -21,12 +21,8 @@ const showOrders = (array) => {
           <p class="card-text">${obj.email}</p>
         </div>
         <div class="card-body">
-
           <a href="#" id="update-order-btn--${obj.firebaseKey}" class="card-link">Edit</a>
-          <a href="#" id="delete-vocab-btn--${obj.firebaseKey}" class="card-link">Delete</a>
-        </div>
-        <div class="card-footer text-muted">
-          ${obj.date_submitted}
+          <a href="#" id="delete-orders-btn--${obj.firebaseKey}" class="card-link">Delete</a>
         </div>
        </div>`;
   });
