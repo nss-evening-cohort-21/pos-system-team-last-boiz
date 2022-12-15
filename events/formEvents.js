@@ -21,7 +21,7 @@ const formEvents = () => {
         });
       });
     }
-
+    // CLICK EVENT FOR UPDATING ORDER
     if (e.target.id.includes('update-order-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
       const payload = {
