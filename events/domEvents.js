@@ -2,6 +2,7 @@ import { deleteOrder, getOrders, getSingleOrder } from '../api/orderData';
 import { showOrders } from '../pages/viewOrder';
 import createOrderForm from '../Forms/createOrderForm';
 import viewItems from '../pages/items';
+import createEditItem from '../Forms/createEditItemForm';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -42,6 +43,13 @@ const domEvents = () => {
 
     if (e.target.id.includes('close-order')) {
       // const [, firebaseKey] = (e.target.id.split('--'));
+    }
+
+    // TODO: CLICK EVENT EDITING/UPDATING an ITEM
+    if (e.target.id.includes('add-items-btn')) {
+      console.warn('create');
+      // const [, firebaseKey] = e.target.id.split('--');
+      createEditItem();
     }
   });
 };
