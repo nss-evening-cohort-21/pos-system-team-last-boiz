@@ -69,6 +69,19 @@ const updateOrder = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// Closed Orders
+const closedOrders = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/order.json?orderBy="closed"&equalTo=true`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
 export {
-  createOrder, updateOrder, getOrders, getSingleOrder, deleteOrder
+  createOrder, updateOrder, getOrders, getSingleOrder, deleteOrder, closedOrders
 };

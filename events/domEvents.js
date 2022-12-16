@@ -39,10 +39,16 @@ const domEvents = () => {
       const [, firebaseKey] = (e.target.id.split('--'));
       getSingleOrder(firebaseKey).then(viewItems);
     }
-    // CLICK EVENT FOR CLOSING ORDEER
+    // CLICK EVENT FOR CLOSING ORDER
     if (e.target.id.includes('payment-btn')) {
       // const [, firebaseKey] = (e.target.id.split('--'));
       closeOrderForm();
+    }
+
+    // CLICK EVENT FOR CLOSED ORDERS
+    if (e.target.id.includes('closed-order-btn')) {
+      // const [, firebaseKey] = (e.target.id.split('--'));
+      // closedOrders().then(showOrders);
     }
 
     // TODO: CLICK EVENT EDITING/UPDATING an ITEM
@@ -50,6 +56,12 @@ const domEvents = () => {
       console.warn('create');
       // const [, firebaseKey] = e.target.id.split('--');
       createEditItem();
+    }
+
+    if (e.target.id.includes('update-item')) {
+      console.warn('Edit btn push');
+      // const [, firebaseKey] = e.target.id.split('--');
+      // getSingleItem(firebaseKey).then(createOrderForm);
     }
   });
 };

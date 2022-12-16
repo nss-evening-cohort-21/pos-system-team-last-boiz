@@ -19,6 +19,7 @@ const showOrders = (array) => {
           <p class="card-text">${obj.phone_number}</p>
           <p class="card-text">${obj.order_type}</p>
           <p class="card-text">${obj.email}</p>
+          <p${obj.closed ? '<span class="badge bg-danger"><i class="fa fa-heart" aria-hidden="true"></i></span>' : ''}</p>
         </div>
         <div class="card-body">
 
