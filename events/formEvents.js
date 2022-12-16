@@ -1,4 +1,7 @@
+import { getItems, updateItems } from '../api/itemData';
 import { createOrder, updateOrder, getOrders } from '../api/orderData';
+import createEditItem from '../Forms/createEditItemForm';
+import viewItems from '../pages/items';
 import { showOrders } from '../pages/viewOrder';
 
 const formEvents = () => {
@@ -32,6 +35,18 @@ const formEvents = () => {
         firebaseKey
       };
       updateOrder(payload).then(() => getOrders().then(showOrders));
+    }
+    if (e.target.id.includes('submit-item')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        name: document.querySelector('#item-name').value,
+        price: document.querySelector('#price').value,
+        firebaseKey
+      };
+      createEditItem(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+        updateItems(patchPayload).then(() => getItems().then(viewItems));
+      });
     }
   });
 };
