@@ -1,4 +1,6 @@
-import { getOrders, getSingleOrder, deleteOrder } from '../api/orderData';
+import {
+  getOrders, getSingleOrder, deleteOrder, getOrderItems
+} from '../api/orderData';
 import { showOrders } from '../pages/viewOrder';
 import createOrderForm from '../Forms/createOrderForm';
 import closeOrderForm from '../Forms/closeOrderForm';
@@ -34,10 +36,10 @@ const domEvents = () => {
       getSingleOrder(firebaseKey).then(createOrderForm);
     }
 
-    // TODO: CLICK EVENT FOR VIEW Word DETAILS
+    // TODO: CLICK EVENT FOR VIEW Order DETAILS
     if (e.target.id.includes('order-details')) {
       const [, firebaseKey] = (e.target.id.split('--'));
-      getSingleOrder(firebaseKey).then(viewItems);
+      getOrderItems(firebaseKey).then(viewItems);
     }
     // CLICK EVENT FOR CLOSING ORDER
     if (e.target.id.includes('payment-btn')) {
@@ -51,11 +53,11 @@ const domEvents = () => {
       // closedOrders().then(showOrders);
     }
 
-    // TODO: CLICK EVENT EDITING/UPDATING an ITEM
+    // TODO: CLICK EVENT Adding an ITEM
     if (e.target.id.includes('add-items-btn')) {
       console.warn('create');
-      // const [, firebaseKey] = e.target.id.split('--');
-      createEditItem();
+      const [, orderId] = e.target.id.split('--');
+      createEditItem({ orderId });
     }
 
     if (e.target.id.includes('update-item')) {

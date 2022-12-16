@@ -82,6 +82,25 @@ const closedOrders = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+//  Get a Single Order's Items
+const getOrderItems = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/item.json?orderBy="orderId"&equalTo="${firebaseKey}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const orderItemsData = {
+        orderId: firebaseKey,
+        items: Object.values(data)
+      };
+      resolve(orderItemsData);
+    })
+    .catch(reject);
+});
+
 export {
-  createOrder, updateOrder, getOrders, getSingleOrder, deleteOrder, closedOrders
+  createOrder, updateOrder, getOrders, getSingleOrder, deleteOrder, closedOrders, getOrderItems
 };
