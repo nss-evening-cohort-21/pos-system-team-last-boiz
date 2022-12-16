@@ -20,10 +20,15 @@ const createOrderForm = (obj = {}) => {
       <div class="form-group">
       <label for="price">Email</label>
       <input type="text" class="form-control" id="order-email" placeholder="Email" value="${obj.email || ''}" required>
-    </div>
-    
+      </div>
+
+      <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="closed" value="${obj.closed ? 'checked' : ''}">
+          <label class="form-check-label" for="closed">Closed</label>
+      </div>
+      
         <label for="type">Type</label> 
-      <select id="order-type" class="form-select" aria-label="Default select example" required>
+        <select id="order-type" class="form-select" aria-label="Default select example" required>
       </div>`;
 
   typeArray.forEach((type) => {
@@ -33,7 +38,8 @@ const createOrderForm = (obj = {}) => {
   });
 
   domString += `</select><button type="submit" class="btn btn-primary" id="submit-order-btn">Submit Order
-    </button></form>`;
+    </button>
+  </form>`;
   renderToDOM('#create-order-container', domString);
 };
 

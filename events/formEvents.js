@@ -32,10 +32,12 @@ const formEvents = () => {
         phone_number: document.querySelector('#phone_number').value,
         email: document.querySelector('#order-email').value,
         order_type: document.querySelector('#order-type').value,
+        closed: document.querySelector('#closed').checked,
         firebaseKey
       };
       updateOrder(payload).then(() => getOrders().then(showOrders));
     }
+
     if (e.target.id.includes('submit-item')) {
       const [, firebaseKey] = e.target.id.split('--');
       const payload = {
@@ -45,7 +47,9 @@ const formEvents = () => {
       };
       createEditItem(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
-        updateItems(patchPayload).then(() => getItems().then(viewItems));
+        updateItems(patchPayload).then(() => {
+          getItems().then(viewItems);
+        });
       });
     }
   });

@@ -10,6 +10,10 @@ const navigationEvents = () => {
   document.querySelector('#create-order-btn').addEventListener('click', () => {
     createOrderForm();
   });
+
+  // document.querySelector('#closed-order-btn').addEventListener('click', () => {
+  //   closedOrders().then(showOrders);
+  // });
 };
 
 export default navigationEvents;
