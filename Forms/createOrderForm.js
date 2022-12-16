@@ -7,7 +7,7 @@ const createOrderForm = (obj = {}) => {
   clearDom();
   let domString = `
 
-    <form id="${obj.firebaseKey ? `edit-order--${obj.firebaseKey}` : 'submit-order'}" class="mb-4">
+    <form id="${obj.firebaseKey ? `update-order-btn--${obj.firebaseKey}` : 'submit-order'}" class="mb-4">
       <div class="form-group">
         <label for="title">Order Name</label>
         <input type="text" class="form-control" id="order-name" aria-describedby="cardTitle" placeholder="Enter Order Name" value="${obj.name || ''}" required>

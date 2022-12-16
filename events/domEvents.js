@@ -1,6 +1,7 @@
-import { deleteOrder, getOrders, getSingleOrder } from '../api/orderData';
+import { getOrders, getSingleOrder, deleteOrder } from '../api/orderData';
 import { showOrders } from '../pages/viewOrder';
 import createOrderForm from '../Forms/createOrderForm';
+import closeOrderForm from '../Forms/closeOrderForm';
 import viewItems from '../pages/items';
 
 const domEvents = () => {
@@ -10,7 +11,6 @@ const domEvents = () => {
       if (window.confirm('Want to delete?')) {
         console.warn('CLICKED DELETE WORD', e.target.id);
         const [, firebaseKey] = (e.target.id.split('--'));
-
         deleteOrder(firebaseKey).then(() => {
           getOrders().then(showOrders);
         });
@@ -21,17 +21,16 @@ const domEvents = () => {
       getOrders().then(showOrders);
     }
 
-    // TODO: CLICK EVENT EDITING/UPDATING an order
-    if (e.target.id.includes('update-order')) {
-      console.warn('edit');
-      const [, firebaseKey] = e.target.id.split('--');
-      getSingleOrder(firebaseKey).then(createOrderForm);
-    }
-
-    // CLICK EVENT FOR CREATING AN ORDER
+    // Create an Order
     if (e.target.id.includes('create-order-btn')) {
       console.warn('ADD ORDER');
       createOrderForm();
+    }
+    // TODO: CLICK EVENT EDITING/UPDATING an order
+    if (e.target.id.includes('update-order-btn')) {
+      console.warn('Edit btn push');
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleOrder(firebaseKey).then(createOrderForm);
     }
 
     // TODO: CLICK EVENT FOR VIEW Word DETAILS
@@ -39,9 +38,10 @@ const domEvents = () => {
       const [, firebaseKey] = (e.target.id.split('--'));
       getSingleOrder(firebaseKey).then(viewItems);
     }
-
-    if (e.target.id.includes('close-order')) {
+    // CLICK EVENT FOR CLOSING ORDEER
+    if (e.target.id.includes('payment-btn')) {
       // const [, firebaseKey] = (e.target.id.split('--'));
+      closeOrderForm();
     }
   });
 };
