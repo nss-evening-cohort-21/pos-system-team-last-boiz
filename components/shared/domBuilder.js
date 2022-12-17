@@ -10,7 +10,7 @@ const domBuilder = () => {
     <div id="order-details"></div>
     <div id="create-order-container"></div>
     <div id="create-item"></div>
-    <div id="close-order"></div>
+    <div id="order-container"></div>
     <div id="revenue"></div>
   </div>`;
 

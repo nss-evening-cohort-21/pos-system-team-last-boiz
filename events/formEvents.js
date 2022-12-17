@@ -54,19 +54,21 @@ const formEvents = () => {
         });
       });
     }
-
-    // CLICK EVENT FOR SUBMITTING AN EDITED ITEM
-    if (e.target.id.includes('update-item')) {
-      console.warn('CLICKED SUBMIT');
+    
+    if (e.target.id.includes('close-order')) {
       const [, firebaseKey] = e.target.id.split('--');
       const payload = {
-        name: document.querySelector('#item-name').value,
-        price: document.querySelector('#price').value,
-        orderId: document.querySelector('#order-id').value,
+        closed: true,
         firebaseKey
       };
-      updateItems(payload).then(() => {
-        getOrderItems(firebaseKey).then(viewItems);
+      updateOrder(payload).then(() => {
+        console.warn('revenue');
+        // Create Reveune API
+        // grab all the items and add them to revenue
+        // const revenuePayload = {
+        // tip: document.querySelector('#order-tip').value,
+        // orderId: document.querySelector('#hidden-value').value,
+        // }
       });
     }
   });
