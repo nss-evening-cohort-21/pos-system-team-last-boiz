@@ -54,7 +54,6 @@ const formEvents = () => {
         });
       });
     }
-
     if (e.target.id.includes('close-order')) {
       const [, firebaseKey] = e.target.id.split('--');
       const payload = {
