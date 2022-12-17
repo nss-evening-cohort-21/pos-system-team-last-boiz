@@ -6,6 +6,7 @@ import createOrderForm from '../Forms/createOrderForm';
 import closeOrderForm from '../Forms/closeOrderForm';
 import viewItems from '../pages/items';
 import createEditItem from '../Forms/createEditItemForm';
+import { getSingleItem } from '../api/itemData';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -63,7 +64,7 @@ const domEvents = () => {
     if (e.target.id.includes('update-item')) {
       console.warn('EDIT ITEM');
       const [, firebaseKey] = e.target.id.split('--');
-      createEditItem(firebaseKey).then(getOrderItems);
+      getSingleItem(firebaseKey).then((obj) => createEditItem(obj));
     }
 
     // CLICK EVENT FOR DELETING AN ITEM

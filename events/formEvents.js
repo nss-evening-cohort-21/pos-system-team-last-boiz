@@ -54,6 +54,21 @@ const formEvents = () => {
         });
       });
     }
+
+    // CLICK EVENT FOR SUBMITTING AN EDITED ITEM
+    if (e.target.id.includes('update-item')) {
+      console.warn('CLICKED SUBMIT');
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        name: document.querySelector('#item-name').value,
+        price: document.querySelector('#price').value,
+        orderId: document.querySelector('#order-id').value,
+        firebaseKey
+      };
+      updateItems(payload).then(() => {
+        getOrderItems(firebaseKey).then(viewItems);
+      });
+    }
   });
 };
 

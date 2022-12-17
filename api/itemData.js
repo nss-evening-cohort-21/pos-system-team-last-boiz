@@ -56,9 +56,23 @@ const updateItems = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// DELETE ITEMS
+const getSingleItem = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/item/${firebaseKey}.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve((data)))
+    .catch(reject);
+});
+
 export {
   getItems,
   createItems,
   deleteItems,
-  updateItems
+  updateItems,
+  getSingleItem
 };
