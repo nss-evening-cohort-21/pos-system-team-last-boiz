@@ -42,6 +42,7 @@ const deleteSingleItem = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// UPDATE ITEMS
 const updateItems = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/item/${payload.firebaseKey}.json`, {
     method: 'PATCH',
@@ -52,6 +53,19 @@ const updateItems = (payload) => new Promise((resolve, reject) => {
   })
     .then((response) => response.json())
     .then(resolve)
+    .catch(reject);
+});
+
+// DELETE ITEMS
+const getSingleItem = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/item/${firebaseKey}.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve((data)))
     .catch(reject);
 });
 

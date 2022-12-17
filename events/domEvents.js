@@ -15,7 +15,7 @@ const domEvents = () => {
     if (e.target.id.includes('delete-orders-btn')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete?')) {
-        console.warn('CLICKED DELETE WORD', e.target.id);
+        console.warn('CLICKED ORDER', e.target.id);
         const [, firebaseKey] = (e.target.id.split('--'));
         deleteOrder(firebaseKey).then(() => {
           getOrders().then(showOrders);
@@ -57,7 +57,7 @@ const domEvents = () => {
       closedOrders(firebaseKey).then(showOrders);
     }
 
-    // TODO: CLICK EVENT Adding an ITEM
+    // TODO: CLICK EVENT FOR ADDING AN ITEM
     if (e.target.id.includes('add-items-btn')) {
       console.warn('create');
       const [, orderId] = e.target.id.split('--');
@@ -65,9 +65,14 @@ const domEvents = () => {
     }
 
     if (e.target.id.includes('update-item')) {
-      console.warn('Edit btn push');
-      // const [, firebaseKey] = e.target.id.split('--');
-      // getSingleItem(firebaseKey).then(createOrderForm);
+      console.warn('EDIT ITEM');
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleItem(firebaseKey).then((obj) => createEditItem(obj));
+    }
+
+    // CLICK EVENT FOR DELETING AN ITEM
+    if (e.target.id.includes('delete-items')) {
+      console.warn('DELETE ITEM');
     }
     // TODO: CLICK EVENT FOR DELETING An Item
     if (e.target.id.includes('delete-items-btn')) {

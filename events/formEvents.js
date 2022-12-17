@@ -54,6 +54,7 @@ const formEvents = () => {
         });
       });
     }
+    
     if (e.target.id.includes('close-order')) {
       const [, firebaseKey] = e.target.id.split('--');
       const payload = {
@@ -68,7 +69,6 @@ const formEvents = () => {
         // tip: document.querySelector('#order-tip').value,
         // orderId: document.querySelector('#hidden-value').value,
         // }
-        //
       });
     }
   });
