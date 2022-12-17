@@ -1,5 +1,5 @@
 import {
-  getOrders, getSingleOrder, deleteOrder, closedOrders
+  getOrders, getSingleOrder, deleteOrder, closedOrders, getSingleItem
 } from '../api/orderData';
 import { showOrders } from '../pages/viewOrder';
 import createOrderForm from '../Forms/createOrderForm';
@@ -84,13 +84,13 @@ const domEvents = () => {
     }
     // TODO: CLICK EVENT FOR DELETING An Item
     if (e.target.id.includes('delete-items-btn')) {
-      // eslint-disable-next-line no-alert
+    // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete?')) {
-        console.warn('CLICKED DELETE ITEM', e.target.id);
-        console.warn(e.target.id.split('--'));
-        const [, firebaseKey] = e.target.id.split('--');
-        deleteSingleItem(firebaseKey).then(() => {
-          getOrders().then(getOrderDetails);
+        const btn = document.querySelector('[id*="add-items-btn"]').id;
+        const [, itemFirebaseKey] = e.target.id.split('--');
+        const [, orderFirebaseKey] = btn.split('--');
+        deleteSingleItem(itemFirebaseKey).then(() => {
+          getOrderDetails(orderFirebaseKey).then(viewItems);
         });
       }
     }
