@@ -54,6 +54,23 @@ const formEvents = () => {
         });
       });
     }
+
+    if (e.target.id.includes('close-order')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        closed: true,
+        firebaseKey
+      };
+      updateOrder(payload).then(() => {
+        console.warn('revenue');
+        // Create Reveune API
+        // grab all the items and add them to revenue
+        // const revenuePayload = {
+        // tip: document.querySelector('#order-tip').value,
+        // orderId: document.querySelector('#hidden-value').value,
+        // }
+      });
+    }
   });
 };
 

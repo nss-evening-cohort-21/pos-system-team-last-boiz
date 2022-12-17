@@ -1,5 +1,5 @@
 import {
-  getOrders, getSingleOrder, deleteOrder, getOrderItems, closedOrders
+  getOrders, getSingleOrder, deleteOrder, closedOrders
 } from '../api/orderData';
 import { showOrders } from '../pages/viewOrder';
 import createOrderForm from '../Forms/createOrderForm';
@@ -7,13 +7,16 @@ import closeOrderForm from '../Forms/closeOrderForm';
 import viewItems from '../pages/items';
 import createEditItem from '../Forms/createEditItemForm';
 import showRevenue from '../pages/revenue';
+import { deleteSingleItem, getSingleItem } from '../api/itemData';
+import getOrderDetails from '../api/mergedData';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
+    // DELETE ORDER
     if (e.target.id.includes('delete-orders-btn')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete?')) {
-        console.warn('CLICKED DELETE WORD', e.target.id);
+        console.warn('CLICKED ORDER', e.target.id);
         const [, firebaseKey] = (e.target.id.split('--'));
         deleteOrder(firebaseKey).then(() => {
           getOrders().then(showOrders);
@@ -40,12 +43,12 @@ const domEvents = () => {
     // TODO: CLICK EVENT FOR VIEW Order DETAILS
     if (e.target.id.includes('order-details')) {
       const [, firebaseKey] = (e.target.id.split('--'));
-      getOrderItems(firebaseKey).then(viewItems);
+      getOrderDetails(firebaseKey).then(viewItems);
     }
     // CLICK EVENT FOR CLOSING ORDER
     if (e.target.id.includes('payment-btn')) {
-      // const [, firebaseKey] = (e.target.id.split('--'));
-      closeOrderForm();
+      const [, firebaseKey] = (e.target.id.split('--'));
+      getSingleOrder(firebaseKey).then((obj) => closeOrderForm(obj));
     }
 
     // CLICK EVENT FOR CLOSED ORDERS
@@ -62,7 +65,7 @@ const domEvents = () => {
       closedOrders(firebaseKey).then(showRevenue);
     }
 
-    // TODO: CLICK EVENT Adding an ITEM
+    // TODO: CLICK EVENT FOR ADDING AN ITEM
     if (e.target.id.includes('add-items-btn')) {
       console.warn('create');
       const [, orderId] = e.target.id.split('--');
@@ -70,9 +73,26 @@ const domEvents = () => {
     }
 
     if (e.target.id.includes('update-item')) {
-      console.warn('Edit btn push');
-      // const [, firebaseKey] = e.target.id.split('--');
-      // getSingleItem(firebaseKey).then(createOrderForm);
+      console.warn('EDIT ITEM');
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleItem(firebaseKey).then((obj) => createEditItem(obj));
+    }
+
+    // CLICK EVENT FOR DELETING AN ITEM
+    if (e.target.id.includes('delete-items')) {
+      console.warn('DELETE ITEM');
+    }
+    // TODO: CLICK EVENT FOR DELETING An Item
+    if (e.target.id.includes('delete-items-btn')) {
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Want to delete?')) {
+        console.warn('CLICKED DELETE ITEM', e.target.id);
+        console.warn(e.target.id.split('--'));
+        const [, firebaseKey] = e.target.id.split('--');
+        deleteSingleItem(firebaseKey).then(() => {
+          getOrders().then(getOrderDetails);
+        });
+      }
     }
   });
 };
