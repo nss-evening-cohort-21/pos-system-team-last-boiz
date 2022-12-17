@@ -6,7 +6,7 @@ import createOrderForm from '../Forms/createOrderForm';
 import closeOrderForm from '../Forms/closeOrderForm';
 import viewItems from '../pages/items';
 import createEditItem from '../Forms/createEditItemForm';
-import { deleteSingleItem } from '../api/itemData';
+import { deleteSingleItem, getSingleItem } from '../api/itemData';
 import getOrderDetails from '../api/mergedData';
 
 const domEvents = () => {
@@ -63,7 +63,7 @@ const domEvents = () => {
       const [, orderId] = e.target.id.split('--');
       createEditItem({ orderId });
     }
-
+    // CLICK EVENT FOR UPDATING AN ITEM
     if (e.target.id.includes('update-item')) {
       console.warn('EDIT ITEM');
       const [, firebaseKey] = e.target.id.split('--');

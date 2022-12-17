@@ -73,5 +73,6 @@ export {
   getItems,
   createItems,
   deleteSingleItem,
-  updateItems
+  updateItems,
+  getSingleItem
 };
