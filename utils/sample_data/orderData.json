@@ -1,7 +1,6 @@
 {
   "-NIwYOaemnYSJmH_QXeN":{
     "name":"Louella Antoinet",
-    "order_status":"closed",
     "phone_number":"367-286-3645",
     "email":"lantoinet0@example.com",
     "order_type":"phone",
@@ -12,7 +11,6 @@
 
   "-NIwYOah5f-IsAvAYsFh":{
     "name":"Halsey Labrom",
-    "order_status":"closed",
     "phone_number":"753-225-5027",
     "email":"hlabrom1@tinypic.com",
     "order_type":"phone",
@@ -23,7 +21,6 @@
 
   "-NIwYOalHZiyqE1DSAV9":{
     "name":"Concordia Bolgar",
-    "order_status":"closed",
     "phone_number":"390-855-4838",
     "email":"cbolgar2@netscape.com",
     "order_type":"phone",
@@ -34,7 +31,6 @@
 
   "-NIwYOaoAftHKbWSn6TY":{
     "name":"Kass Likly",
-    "order_status":"open",
     "phone_number":"260-595-8892",
     "email":"klikly3@meetup.com",
     "order_type":"phone",
