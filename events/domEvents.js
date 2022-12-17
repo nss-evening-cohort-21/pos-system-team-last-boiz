@@ -6,9 +6,12 @@ import createOrderForm from '../Forms/createOrderForm';
 import closeOrderForm from '../Forms/closeOrderForm';
 import viewItems from '../pages/items';
 import createEditItem from '../Forms/createEditItemForm';
+import { deleteSingleItem } from '../api/itemData';
+import getOrderDetails from '../api/mergedData';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
+    // DELETE ORDER
     if (e.target.id.includes('delete-orders-btn')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete?')) {
@@ -65,6 +68,18 @@ const domEvents = () => {
       console.warn('Edit btn push');
       // const [, firebaseKey] = e.target.id.split('--');
       // getSingleItem(firebaseKey).then(createOrderForm);
+    }
+    // TODO: CLICK EVENT FOR DELETING An Item
+    if (e.target.id.includes('delete-items-btn')) {
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Want to delete?')) {
+        console.warn('CLICKED DELETE ITEM', e.target.id);
+        console.warn(e.target.id.split('--'));
+        const [, firebaseKey] = e.target.id.split('--');
+        deleteSingleItem(firebaseKey).then(() => {
+          getOrders().then(getOrderDetails);
+        });
+      }
     }
   });
 };
