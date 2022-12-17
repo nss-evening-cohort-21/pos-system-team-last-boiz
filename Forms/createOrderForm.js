@@ -39,7 +39,7 @@ const createOrderForm = (obj = {}) => {
              value="${type}" ${type === obj.order_type ? 'selected' : ''}>${type}</option>`;
   });
 
-  domString += `</select><button type="submit" class="btn btn-primary" id="submit-order-btn">Submit Order
+  domString += `</select><button type="submit" class="btn btn-primary">Submit Order
     </button>
     </form>`;
   renderToDOM('#create-order-container', domString);

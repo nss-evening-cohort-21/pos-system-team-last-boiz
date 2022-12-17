@@ -1,11 +1,12 @@
 import {
-  getOrders, getSingleOrder, deleteOrder, getOrderItems, closedOrders
+  getOrders, getSingleOrder, deleteOrder, closedOrders
 } from '../api/orderData';
 import { showOrders } from '../pages/viewOrder';
 import createOrderForm from '../Forms/createOrderForm';
 import closeOrderForm from '../Forms/closeOrderForm';
 import viewItems from '../pages/items';
 import createEditItem from '../Forms/createEditItemForm';
+import getOrderDetails from '../api/mergedData';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -39,12 +40,12 @@ const domEvents = () => {
     // TODO: CLICK EVENT FOR VIEW Order DETAILS
     if (e.target.id.includes('order-details')) {
       const [, firebaseKey] = (e.target.id.split('--'));
-      getOrderItems(firebaseKey).then(viewItems);
+      getOrderDetails(firebaseKey).then(viewItems);
     }
     // CLICK EVENT FOR CLOSING ORDER
     if (e.target.id.includes('payment-btn')) {
-      // const [, firebaseKey] = (e.target.id.split('--'));
-      closeOrderForm();
+      const [, firebaseKey] = (e.target.id.split('--'));
+      getSingleOrder(firebaseKey).then((obj) => closeOrderForm(obj));
     }
 
     // CLICK EVENT FOR CLOSED ORDERS
