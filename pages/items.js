@@ -21,7 +21,7 @@ const viewItems = (obj) => {
             <h6 class="card-title">${item.price}</h6>
             <hr>
             <i class="btn btn-success fas fa-eye" id="view-items-btn--${item.firebaseKey}"></i>
-            <i id="edit-items-btn--${item.firebaseKey}" class="fas fa-edit btn btn-info"></i>
+            <i id="update-item-btn--${item.firebaseKey}" class="fas fa-edit btn btn-info"></i>
             <i id="delete-items-btn--${item.firebaseKey}" class="btn btn-danger fas fa-trash-alt"></i>
         </div>
       </div>`;

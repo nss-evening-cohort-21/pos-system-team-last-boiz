@@ -42,6 +42,7 @@ const deleteItems = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// UPDATE ITEMS
 const updateItems = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/item/${payload.firebaseKey}.json`, {
     method: 'PATCH',
