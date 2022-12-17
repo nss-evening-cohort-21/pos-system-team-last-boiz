@@ -15,17 +15,15 @@ const showOrders = (array) => {
     <div id="view" class="card" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-text">${obj.name}</h5><hr><br>
-          <h5 class"card-text">${obj.order_status}</h5>
           <p class="card-text">${obj.phone_number}</p>
           <p class="card-text">${obj.order_type}</p>
           <p class="card-text">${obj.email}</p>
-          <p${obj.closed ? '<span class="badge bg-danger"><i class="fa fa-heart" aria-hidden="true"></i></span>' : ''}</p>
         </div>
         <div class="card-body">
-
           <a href="#" id="order-details-btn--${obj.firebaseKey}" class="card-link">Order Details</a>
           <a href="#" id="update-order-btn--${obj.firebaseKey}" class="card-link">Edit</a>
           <a href="#" id="delete-orders-btn--${obj.firebaseKey}" class="card-link">Delete</a>
+          <a${obj.closed ? '<span class="badge bg-danger"><i class="fas fa-lock" aria-hidden="true"></i></span>' : ''}</a>
         </div>
        </div>`;
   });

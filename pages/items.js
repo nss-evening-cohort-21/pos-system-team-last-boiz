@@ -7,13 +7,14 @@ import clearDom from '../utils/clearDom';
 // };
 
 const viewItems = (obj) => {
+  console.warn(obj);
   clearDom();
 
-  const btnString = `<button class="btn btn-success btn-lg mb-4" id="add-items-btn--${obj.orderId}">Add An Item</button><button class="btn btn-primary btn-lg mb-4" id="payment-btn">Go To Payment</button>`;
+  const btnString = `<button class="btn btn-success btn-lg mb-4" id="add-items-btn--${obj.firebaseKey}">Add An Item</button><button class="btn btn-primary btn-lg mb-4" id="payment-btn--${obj.firebaseKey}">Go To Payment</button>`;
   renderToDOM('#order-details', btnString);
 
   let domString = '';
-  obj.items.forEach((item) => {
+  obj.itemsArray.forEach((item) => {
     domString += `
       <div class="card">
         <div class="card-body" style="height: 180px;">

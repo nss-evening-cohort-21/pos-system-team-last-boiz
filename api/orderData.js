@@ -91,8 +91,8 @@ const getOrderItems = (firebaseKey) => new Promise((resolve, reject) => {
     }
   })
     .then((response) => response.json())
-    .then((data) => resolve(Object.values(data))
-      .catch(reject));
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
 });
 
 export {
