@@ -29,8 +29,8 @@ const createItems = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// DELETE ITEMS
-const deleteItems = (firebaseKey) => new Promise((resolve, reject) => {
+// DELETE ITEM
+const deleteSingleItem = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/item/${firebaseKey}.json`, {
     method: 'DELETE',
     headers: {
@@ -58,6 +58,6 @@ const updateItems = (payload) => new Promise((resolve, reject) => {
 export {
   getItems,
   createItems,
-  deleteItems,
+  deleteSingleItem,
   updateItems
 };
