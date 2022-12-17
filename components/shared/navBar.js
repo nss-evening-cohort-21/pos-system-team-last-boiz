@@ -19,6 +19,9 @@ const navBar = () => {
           <li class="nav-item">
             <a class="nav-link" href="#" id="closed-order-btn">Closed Orders</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="view-revenue-btn">View Revenue</a>
+          </li>
         </ul>
         <span class="navbar-text">
           <div id="logout-button"></div>
