@@ -1,5 +1,5 @@
 import {
-  getOrders, getSingleOrder, deleteOrder, getOrderItems
+  getOrders, getSingleOrder, deleteOrder, getOrderItems, closedOrders
 } from '../api/orderData';
 import { showOrders } from '../pages/viewOrder';
 import createOrderForm from '../Forms/createOrderForm';
@@ -49,8 +49,9 @@ const domEvents = () => {
 
     // CLICK EVENT FOR CLOSED ORDERS
     if (e.target.id.includes('closed-order-btn')) {
-      // const [, firebaseKey] = (e.target.id.split('--'));
-      // closedOrders().then(showOrders);
+      console.warn('close order btn');
+      const [, firebaseKey] = (e.target.id.split('--'));
+      closedOrders(firebaseKey).then(showOrders);
     }
 
     // TODO: CLICK EVENT Adding an ITEM

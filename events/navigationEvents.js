@@ -1,4 +1,4 @@
-import { getOrders } from '../api/orderData';
+import { getOrders, closedOrders } from '../api/orderData';
 import { showOrders } from '../pages/viewOrder';
 import createOrderForm from '../Forms/createOrderForm';
 
@@ -11,9 +11,9 @@ const navigationEvents = () => {
     createOrderForm();
   });
 
-  // document.querySelector('#closed-order-btn').addEventListener('click', () => {
-  //   closedOrders().then(showOrders);
-  // });
+  document.querySelector('#closed-order-btn').addEventListener('click', () => {
+    closedOrders().then(showOrders);
+  });
 };
 
 export default navigationEvents;
