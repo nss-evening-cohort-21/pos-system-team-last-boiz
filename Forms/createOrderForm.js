@@ -27,6 +27,8 @@ const createOrderForm = (obj = {}) => {
           <label class="form-check-label" for="closed">Closed</label>
       </div>
       
+      
+      <div>
         <label for="type">Type</label> 
         <select id="order-type" class="form-select" aria-label="Default select example" required>
       </div>`;
@@ -37,9 +39,9 @@ const createOrderForm = (obj = {}) => {
              value="${type}" ${type === obj.order_type ? 'selected' : ''}>${type}</option>`;
   });
 
-  domString += `</select><button type="submit" class="btn btn-primary" id="submit-order-btn">Submit Order
+  domString += `</select><button type="submit" class="btn btn-primary">Submit Order
     </button>
-  </form>`;
+    </form>`;
   renderToDOM('#create-order-container', domString);
 };
 
