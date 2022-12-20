@@ -61,11 +61,16 @@ const domEvents = () => {
       closedOrders(firebaseKey).then(showOrders);
     }
 
+    // if (e.target.id.includes('close-payment')) {
+    //   console.warn('close order btn');
+    //   const [, firebaseKey] = (e.target.id.split('--'));
+    //   closedOrders(firebaseKey).then(revenuePage);
+    // }
+
     // CLICK EVENT FOR SHOWING REVENUE PAGE
     if (e.target.id.includes('view-revenue-btn')) {
       console.warn('revenue');
-      const [, firebaseKey] = (e.target.id.split('--'));
-      revenuePage(firebaseKey);
+      revenuePage();
     }
 
     // TODO: CLICK EVENT FOR ADDING AN ITEM
