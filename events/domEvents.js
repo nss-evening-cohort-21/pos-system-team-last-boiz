@@ -9,6 +9,7 @@ import createEditItem from '../Forms/createEditItemForm';
 // import showRevenue from '../pages/revenue';
 import { deleteSingleItem, getSingleItem } from '../api/itemData';
 import getOrderDetails from '../api/mergedData';
+import revenuePage from '../pages/revenuePage';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -62,7 +63,7 @@ const domEvents = () => {
     if (e.target.id.includes('view-revenue-btn')) {
       console.warn('revenue');
       const [, firebaseKey] = (e.target.id.split('--'));
-      closedOrders(firebaseKey).then();
+      revenuePage(firebaseKey);
     }
 
     // TODO: CLICK EVENT FOR ADDING AN ITEM
