@@ -1,5 +1,5 @@
 import {
-  getOrders, getSingleOrder, deleteOrder, closedOrders, getSingleItem
+  getOrders, getSingleOrder, deleteOrder, closedOrders
 } from '../api/orderData';
 import { showOrders } from '../pages/viewOrder';
 import createOrderForm from '../Forms/createOrderForm';
