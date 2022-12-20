@@ -1,13 +1,15 @@
 import {
-  getOrders, getSingleOrder, deleteOrder, closedOrders, getSingleItem
+  getOrders, getSingleOrder, deleteOrder, closedOrders
 } from '../api/orderData';
 import { showOrders } from '../pages/viewOrder';
 import createOrderForm from '../Forms/createOrderForm';
 import closeOrderForm from '../Forms/closeOrderForm';
 import viewItems from '../pages/items';
 import createEditItem from '../Forms/createEditItemForm';
-import { deleteSingleItem } from '../api/itemData';
+// import showRevenue from '../pages/revenue';
+import { deleteSingleItem, getSingleItem } from '../api/itemData';
 import getOrderDetails from '../api/mergedData';
+import revenuePage from '../pages/revenuePage';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -55,6 +57,13 @@ const domEvents = () => {
       console.warn('close order btn');
       const [, firebaseKey] = (e.target.id.split('--'));
       closedOrders(firebaseKey).then(showOrders);
+    }
+
+    // CLICK EVENT FOR SHOWING REVENUE PAGE
+    if (e.target.id.includes('view-revenue-btn')) {
+      console.warn('revenue');
+      const [, firebaseKey] = (e.target.id.split('--'));
+      revenuePage(firebaseKey);
     }
 
     // TODO: CLICK EVENT FOR ADDING AN ITEM
