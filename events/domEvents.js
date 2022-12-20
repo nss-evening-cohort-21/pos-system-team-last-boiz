@@ -72,7 +72,7 @@ const domEvents = () => {
       const [, orderId] = e.target.id.split('--');
       createEditItem({ orderId });
     }
-
+    // CLICK EVENT FOR UPDATING AN ITEM
     if (e.target.id.includes('update-item')) {
       console.warn('EDIT ITEM');
       const [, firebaseKey] = e.target.id.split('--');
