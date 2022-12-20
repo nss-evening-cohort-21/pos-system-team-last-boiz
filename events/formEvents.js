@@ -5,6 +5,7 @@ import {
 } from '../api/orderData';
 import viewItems from '../pages/items';
 import { showOrders } from '../pages/viewOrder';
+import getOrderDetails from '../api/mergedData';
 
 const formEvents = () => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
@@ -78,6 +79,9 @@ const formEvents = () => {
         firebaseKey
       };
       updateOrder(payload).then(() => {
+        if (payload.closed === true) {
+          // showRevenue(firebaseKey);
+        }
         console.warn('revenue');
         // Create Reveune API
         // grab all the items and add them to revenue
