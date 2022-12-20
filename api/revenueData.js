@@ -4,7 +4,7 @@ const endpoint = client.databaseURL;
 
 // GET REVENUE
 const getRevenue = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/order.json`, {
+  fetch(`${endpoint}/revenue.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -17,7 +17,7 @@ const getRevenue = () => new Promise((resolve, reject) => {
 
 // CREATE REVENUE
 const createRevenue = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/order.json`, {
+  fetch(`${endpoint}/revenue.json`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -29,9 +29,9 @@ const createRevenue = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// UPDATE ITEMS
+// UPDATE REVENUE
 const updateRevenue = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/item/${payload.firebaseKey}.json`, {
+  fetch(`${endpoint}/revenue/${payload.firebaseKey}.json`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ const updateRevenue = (payload) => new Promise((resolve, reject) => {
 
 // DELETE REVENUE
 const deleteRevenue = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/item/${firebaseKey}.json`, {
+  fetch(`${endpoint}/revenue/${firebaseKey}.json`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',

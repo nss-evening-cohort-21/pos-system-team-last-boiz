@@ -5,7 +5,6 @@ import {
 } from '../api/orderData';
 import viewItems from '../pages/items';
 import { showOrders } from '../pages/viewOrder';
-import getOrderDetails from '../api/mergedData';
 
 const formEvents = () => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
@@ -71,7 +70,7 @@ const formEvents = () => {
         getOrderDetails(payload.orderId).then(viewItems);
       });
     }
-    
+
     if (e.target.id.includes('close-order')) {
       const [, firebaseKey] = e.target.id.split('--');
       const payload = {
@@ -86,8 +85,8 @@ const formEvents = () => {
         // Create Reveune API
         // grab all the items and add them to revenue
         // const revenuePayload = {
-        // tip: document.querySelector('#order-tip').value,
-        // orderId: document.querySelector('#hidden-value').value,
+        //   tip: document.querySelector('#order-tip').value,
+        //   orderId: document.querySelector('#hidden-value').value,
         // }
       });
     }
