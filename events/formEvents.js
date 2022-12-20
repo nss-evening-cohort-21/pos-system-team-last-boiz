@@ -1,4 +1,5 @@
 import { createItems, updateItems } from '../api/itemData';
+import getOrderDetails from '../api/mergedData';
 import {
   createOrder, updateOrder, getOrders
 } from '../api/orderData';
@@ -41,11 +42,12 @@ const formEvents = () => {
     }
 
     if (e.target.id.includes('submit-item')) {
-      // const [, firebaseKey] = e.target.id.split('--');
+      const [, firebaseKey] = e.target.id.split('--');
       const payload = {
         name: document.querySelector('#item-name').value,
         price: document.querySelector('#price').value,
         orderId: document.querySelector('#order-id').value,
+        firebaseKey
       };
       console.warn(payload);
       createItems(payload).then(({ name }) => {
@@ -55,6 +57,21 @@ const formEvents = () => {
         });
       });
     }
+
+    if (e.target.id.includes('update-item')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        name: document.querySelector('#item-name').value,
+        price: document.querySelector('#price').value,
+        orderId: document.querySelector('#order-id').value,
+        firebaseKey
+      };
+      console.warn(payload);
+      updateItems(payload).then(() => {
+        getOrderDetails(payload.orderId).then(viewItems);
+      });
+    }
+    
     if (e.target.id.includes('close-order')) {
       const [, firebaseKey] = e.target.id.split('--');
       const payload = {

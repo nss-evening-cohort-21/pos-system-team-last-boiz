@@ -6,8 +6,12 @@ import createOrderForm from '../Forms/createOrderForm';
 import closeOrderForm from '../Forms/closeOrderForm';
 import viewItems from '../pages/items';
 import createEditItem from '../Forms/createEditItemForm';
+
+// import showRevenue from '../pages/revenue';
+
 import { deleteSingleItem, getSingleItem } from '../api/itemData';
 import getOrderDetails from '../api/mergedData';
+import revenuePage from '../pages/revenuePage';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -57,13 +61,20 @@ const domEvents = () => {
       closedOrders(firebaseKey).then(showOrders);
     }
 
+    // CLICK EVENT FOR SHOWING REVENUE PAGE
+    if (e.target.id.includes('view-revenue-btn')) {
+      console.warn('revenue');
+      const [, firebaseKey] = (e.target.id.split('--'));
+      revenuePage(firebaseKey);
+    }
+
     // TODO: CLICK EVENT FOR ADDING AN ITEM
     if (e.target.id.includes('add-items-btn')) {
       console.warn('create');
       const [, orderId] = e.target.id.split('--');
       createEditItem({ orderId });
     }
-
+    // CLICK EVENT FOR UPDATING AN ITEM
     if (e.target.id.includes('update-item')) {
       console.warn('EDIT ITEM');
       const [, firebaseKey] = e.target.id.split('--');
