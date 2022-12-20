@@ -70,7 +70,7 @@ const formEvents = () => {
         getOrderDetails(payload.orderId).then(viewItems);
       });
     }
-
+    
     if (e.target.id.includes('close-order')) {
       const [, firebaseKey] = e.target.id.split('--');
       const payload = {
