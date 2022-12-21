@@ -6,9 +6,8 @@ import {
 import { getRevenue, updateRevenue, createRevenue } from '../api/revenueData';
 import showHomePage from '../pages/homePage';
 import viewItems from '../pages/items';
-// import revenuePage from '../pages/revenuePage';
 import { showOrders } from '../pages/viewOrder';
-import revenuePage from '../pages/revenuePage';
+// import revenuePage from '../pages/revenuePage';
 
 const formEvents = () => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
@@ -79,7 +78,7 @@ const formEvents = () => {
       const [, firebaseKey] = e.target.id.split('--');
 
       getOrderItems(firebaseKey).then((itemsArray) => {
-        const itemTotal = itemsArray.map((item) => Number(item.itemPrice)).reduce((a, b) => a + b, 0);
+        const itemTotal = itemsArray.map((item) => Number(item.price)).reduce((a, b) => a + b, 0);
         const tips = Number(document.querySelector('#order-tip').value);
         console.warn(itemTotal);
         const revenuePayload = {

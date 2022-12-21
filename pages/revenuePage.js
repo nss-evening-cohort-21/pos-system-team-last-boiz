@@ -1,8 +1,8 @@
-import clearDom from '../utils/clearDom';
+// import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
 
 const revenuePage = (obj = {}) => {
-  clearDom();
+  // clearDom();
 
   const domString = ` 
   <h1>Here's our revenue</h1> <i class="fa-solid fa-wave-pulse"></i>
