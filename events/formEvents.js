@@ -1,5 +1,5 @@
 import { createItems, updateItems } from '../api/itemData';
-import getOrderDetails from '../api/mergedData';
+import { getOrderDetails } from '../api/mergedData';
 import {
   createOrder, updateOrder, getOrders
 } from '../api/orderData';
