@@ -1,10 +1,11 @@
 import { createItems, updateItems } from '../api/itemData';
-import getOrderDetails from '../api/mergedData';
+import { getOrderDetails } from '../api/mergedData';
 import {
   createOrder, updateOrder, getOrders
 } from '../api/orderData';
 import viewItems from '../pages/items';
 import { showOrders } from '../pages/viewOrder';
+import revenuePage from '../pages/revenuePage';
 
 const formEvents = () => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
@@ -79,7 +80,7 @@ const formEvents = () => {
       };
       updateOrder(payload).then(() => {
         if (payload.closed === true) {
-          // showRevenue(firebaseKey);
+          revenuePage(firebaseKey);
         }
         console.warn('revenue');
         // Create Reveune API
