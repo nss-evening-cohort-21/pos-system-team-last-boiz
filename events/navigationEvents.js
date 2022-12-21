@@ -2,6 +2,7 @@ import { getOrders, closedOrders } from '../api/orderData';
 import { showOrders } from '../pages/viewOrder';
 import createOrderForm from '../Forms/createOrderForm';
 import revenuePage from '../pages/revenuePage';
+import { getRevenue } from '../api/revenueData';
 
 const navigationEvents = () => {
   document.querySelector('#view-order-btn').addEventListener('click', () => {
@@ -17,7 +18,7 @@ const navigationEvents = () => {
   });
 
   document.querySelector('#view-revenue-btn').addEventListener('click', () => {
-    revenuePage();
+    getRevenue().then(revenuePage);
   });
 };
 
