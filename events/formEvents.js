@@ -4,7 +4,7 @@ import {
   createOrder, updateOrder, getOrders, getOrderItems
 } from '../api/orderData';
 import { getRevenue, updateRevenue, createRevenue } from '../api/revenueData';
-import showHomePage from '../pages/homePage';
+// import showHomePage from '../pages/homePage';
 import viewItems from '../pages/items';
 // import revenuePage from '../pages/revenuePage';
 import { showOrders } from '../pages/viewOrder';
@@ -92,7 +92,7 @@ const formEvents = () => {
         createRevenue(revenuePayload).then(({ name }) => {
           const patchPayload = { firebaseKey: name };
           updateRevenue(patchPayload).then(() => {
-            getRevenue().then(showHomePage);
+            getRevenue().then(revenuePage);
           });
         });
       });

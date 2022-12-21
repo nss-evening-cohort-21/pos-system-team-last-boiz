@@ -10,7 +10,7 @@ import createEditItem from '../Forms/createEditItemForm';
 // import showRevenue from '../pages/revenue';
 import { deleteSingleItem, getSingleItem } from '../api/itemData';
 import revenuePage from '../pages/revenuePage';
-import { deleteOrderItemsRelationship, getOrderDetails } from '../api/mergedData';
+import { getRevenue } from '../api/revenueData';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -69,7 +69,7 @@ const domEvents = () => {
     // CLICK EVENT FOR SHOWING REVENUE PAGE
     if (e.target.id.includes('view-revenue-btn')) {
       console.warn('revenue');
-      revenuePage();
+      getRevenue().then(revenuePage);
     }
 
     // TODO: CLICK EVENT FOR ADDING AN ITEM
