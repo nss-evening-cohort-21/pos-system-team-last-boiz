@@ -86,8 +86,8 @@ const formEvents = () => {
         // Create Reveune API
         // grab all the items and add them to revenue
         // const revenuePayload = {
-        // tip: document.querySelector('#order-tip').value,
-        // orderId: document.querySelector('#hidden-value').value,
+        //   tip: document.querySelector('#order-tip').value,
+        //   orderId: document.querySelector('#hidden-value').value,
         // }
       });
     }
