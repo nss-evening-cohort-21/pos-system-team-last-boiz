@@ -11,8 +11,16 @@ const getRevenue = () => new Promise((resolve, reject) => {
     },
   })
     .then((response) => response.json())
-    .then((data) => resolve(Object.values(data)))
-    .catch(reject);
+    .then((data) => {
+      if (data) {
+        const moreRevenue = Object.values(data);
+        const totalRevenue = moreRevenue.map((item) => Number(item.total)).reduce((a, b) => a + b, 0);
+        console.warn(totalRevenue);
+        resolve(totalRevenue);
+      } else {
+        resolve([]);
+      }
+    }).catch(reject);
 });
 
 // CREATE REVENUE
