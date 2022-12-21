@@ -14,7 +14,7 @@ const getRevenue = () => new Promise((resolve, reject) => {
     .then((data) => {
       if (data) {
         const moreRevenue = Object.values(data);
-        const totalRevenue = moreRevenue.map((item) => Number(item.total)).reduce((a, b) => a + b, 0);
+        const totalRevenue = moreRevenue.map((item) => item.total).reduce((a, b) => a + b, 0);
         console.warn(totalRevenue);
         resolve(totalRevenue);
       } else {
