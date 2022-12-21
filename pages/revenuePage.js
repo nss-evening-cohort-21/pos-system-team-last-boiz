@@ -12,7 +12,7 @@ const revenuePage = (obj = {}) => {
     <h3>Total Call-in orders ${obj.order_type}</h3>
     <h3>Total walk-in orders ${obj.order_type}</h3>
     
-  <div id ="payment types">
+  <div id ="payment-type">
     <h1>Payment types</h1>
     <h3>Cash ${obj.paymentType}</h3>
     <h3>Credit ${obj.paymentType}</h3>

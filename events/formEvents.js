@@ -1,9 +1,12 @@
 import { createItems, updateItems } from '../api/itemData';
 import getOrderDetails from '../api/mergedData';
 import {
-  createOrder, updateOrder, getOrders
+  createOrder, updateOrder, getOrders, getOrderItems
 } from '../api/orderData';
+import { getRevenue, updateRevenue, createRevenue } from '../api/revenueData';
+import showHomePage from '../pages/homePage';
 import viewItems from '../pages/items';
+// import revenuePage from '../pages/revenuePage';
 import { showOrders } from '../pages/viewOrder';
 
 const formEvents = () => {
@@ -73,23 +76,62 @@ const formEvents = () => {
 
     if (e.target.id.includes('close-order')) {
       const [, firebaseKey] = e.target.id.split('--');
-      const payload = {
-        closed: true,
-        firebaseKey
+
+      getOrderItems(firebaseKey).then((itemsArray) => {
+        const itemTotal = itemsArray.map((item) => Number(item.itemPrice)).reduce((a, b) => a + b, 0);
+        const tips = Number(document.querySelector('#order-tip').value);
+        console.warn(itemTotal);
+        const revenuePayload = {
+          paymentType: document.querySelector('#payment-type').value,
+          tip: tips,
+          total: itemTotal + tips,
+          // date: currentDate,
+          orderId: firebaseKey,
+        };
+        createRevenue(revenuePayload).then(({ name }) => {
+          const patchPayload = { firebaseKey: name };
+          updateRevenue(patchPayload).then(() => {
+            getRevenue().then(showHomePage);
+          });
+        });
+      });
+
+      const orderPayload = {
+        order_status: false,
+        firebaseKey,
       };
-      updateOrder(payload).then(() => {
-        if (payload.closed === true) {
-          // showRevenue(firebaseKey);
-        }
-        console.warn('revenue');
-        // Create Reveune API
-        // grab all the items and add them to revenue
-        // const revenuePayload = {
-        //   tip: document.querySelector('#order-tip').value,
-        //   orderId: document.querySelector('#hidden-value').value,
-        // }
+      // get single order (firebase key)
+      updateOrder(orderPayload).then(() => {
+        getOrders().then(showOrders);
       });
     }
+    // if (e.target.id.includes('close-order')) {
+    //   const [, firebaseKey] = e.target.id.split('--');
+    //   const payload = {
+    //     closed: true,
+    //     firebaseKey
+    //   };
+    //   updateOrder(payload).then(() => {
+    //     if (payload.closed === true) {
+    //       // showRevenue(firebaseKey);
+    //     }
+    //     console.warn('revenue');
+    //     // Create Reveune API
+    //     // grab all the items and add them to revenue
+    //     const revenuePayload = {
+    //       tip: document.querySelector('#order-tip').value,
+    //       // orderId: document.querySelector('#hidden-value').value,
+    //       paymentType: document.querySelector('#payment-type').value,
+    //       price: document.querySelector('#price').value,
+    //       // date: document.querySelector('#date').value,
+    //       total: document.querySelector('#revenue').value,
+    //       firebaseKey
+    //     };
+    //     updateRevenue(revenuePayload).then(() => {
+    //       getRevenue().then(revenuePage);
+    //     });
+    //   });
+    // }
   });
 };
 
