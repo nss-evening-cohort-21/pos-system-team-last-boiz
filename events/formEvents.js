@@ -8,7 +8,7 @@ import showHomePage from '../pages/homePage';
 import viewItems from '../pages/items';
 // import revenuePage from '../pages/revenuePage';
 import { showOrders } from '../pages/viewOrder';
-import revenuePage from '../pages/revenuePage';
+// import revenuePage from '../pages/revenuePage';
 
 const formEvents = () => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {

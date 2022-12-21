@@ -10,7 +10,6 @@ import createEditItem from '../Forms/createEditItemForm';
 // import showRevenue from '../pages/revenue';
 import { deleteSingleItem, getSingleItem } from '../api/itemData';
 import revenuePage from '../pages/revenuePage';
-import { deleteOrderItemsRelationship, getOrderDetails } from '../api/mergedData';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
