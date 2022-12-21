@@ -6,6 +6,7 @@ import {
 import { getRevenue, updateRevenue, createRevenue } from '../api/revenueData';
 // import showHomePage from '../pages/homePage';
 import viewItems from '../pages/items';
+import revenuePage from '../pages/revenuePage';
 import { showOrders } from '../pages/viewOrder';
 // import revenuePage from '../pages/revenuePage';
 
