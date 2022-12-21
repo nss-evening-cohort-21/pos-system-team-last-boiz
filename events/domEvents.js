@@ -1,17 +1,16 @@
+import { deleteOrderItemsRelationship, getOrderDetails } from '../api/mergedData';
 import {
-  getOrders, getSingleOrder, deleteOrder, closedOrders
+  getOrders, getSingleOrder, closedOrders
 } from '../api/orderData';
 import { showOrders } from '../pages/viewOrder';
 import createOrderForm from '../Forms/createOrderForm';
 import closeOrderForm from '../Forms/closeOrderForm';
 import viewItems from '../pages/items';
 import createEditItem from '../Forms/createEditItemForm';
-
 // import showRevenue from '../pages/revenue';
-
 import { deleteSingleItem, getSingleItem } from '../api/itemData';
-import getOrderDetails from '../api/mergedData';
 import revenuePage from '../pages/revenuePage';
+import { deleteOrderItemsRelationship, getOrderDetails } from '../api/mergedData';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -21,7 +20,7 @@ const domEvents = () => {
       if (window.confirm('Want to delete?')) {
         console.warn('CLICKED ORDER', e.target.id);
         const [, firebaseKey] = (e.target.id.split('--'));
-        deleteOrder(firebaseKey).then(() => {
+        deleteOrderItemsRelationship(firebaseKey).then(() => {
           getOrders().then(showOrders);
         });
       }
@@ -99,6 +98,18 @@ const domEvents = () => {
         const [, orderFirebaseKey] = btn.split('--');
         deleteSingleItem(itemFirebaseKey).then(() => {
           getOrderDetails(orderFirebaseKey).then(viewItems);
+        });
+      }
+    }
+
+    if (e.target.id.includes('delete-author-btn')) {
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Want to delete?')) {
+        // console.warn('DELETE AUTHOR', e.target.id);
+        // console.warn(e.target.id.split('--'));
+        const [, firebaseKey] = e.target.split('--');
+        deleteOrderItemsRelationship(firebaseKey).then(() => {
+          getOrders().then(showOrders);
         });
       }
     }
