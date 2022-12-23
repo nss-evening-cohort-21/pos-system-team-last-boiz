@@ -20,9 +20,9 @@ const showOrders = (array) => {
           <p class="card-text">${obj.email}</p>
         </div>
         <div class="card-body">
-          <a href="#" id="order-details-btn--${obj.firebaseKey}" class="card-link">Order Details</a>
-          <a href="#" id="update-order-btn--${obj.firebaseKey}" class="card-link">Edit</a>
-          <a href="#" id="delete-orders-btn--${obj.firebaseKey}" class="card-link">Delete</a>
+          <a href="#" id="order-details-btn--${obj.firebaseKey}" <button class="btn"><i class="fa fa-folder"></i></button></a>
+          <a href="#" id="update-order-btn--${obj.firebaseKey}" <button class="btn"><i class="fa fa-bars"></i></button></a>
+          <a href="#" id="delete-orders-btn--${obj.firebaseKey}" <button class="btn"><i class="fa fa-trash"></i></button></a>
           <a${obj.closed ? '<span class="badge bg-danger"><i class="fas fa-lock" aria-hidden="true"></i></span>' : ''}</a>
         </div>
        </div>`;

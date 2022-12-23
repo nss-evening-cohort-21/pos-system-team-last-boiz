@@ -57,7 +57,7 @@ const domEvents = () => {
     if (e.target.id.includes('closed-order-btn')) {
       console.warn('close order btn');
       const [, firebaseKey] = (e.target.id.split('--'));
-      closedOrders(firebaseKey).then(showOrders);
+      closedOrders(firebaseKey).then(revenuePage);
     }
 
     // if (e.target.id.includes('close-payment')) {
