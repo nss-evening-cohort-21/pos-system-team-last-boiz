@@ -37,13 +37,30 @@ body {
   margin-right: 30px;
   margin-top: 30px;
   margin-bottom: 30px;
-  color: white;
+  color: #272727;
 }
 
 .card-link {
-  color: #747474;
+  color: #272727;
 }
 
-.navbar-custom {
-  color: #14A76C;
+#create-order-btn{
+  background-color: #ff652f;
+}
+
+#view-revenue-btn{
+  background-color: #14A76C;
+}
+
+#view-order-btn{
+  background-color: #ffe400;
+}
+
+.navbar{
+  background-color: #747474;
+}
+
+.dom-btn{
+  height: 200px;
+  width: 200px;
 }
