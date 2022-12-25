@@ -83,3 +83,28 @@ body {
   justify-content: center;
 
 }
+
+.form-group{
+  width: 500px;
+  color: #747474;
+}
+
+.form-select{
+  width: 500px;
+  color: #747474;
+}
+
+#order-type{
+  color: #747474
+}
+
+#create-order-container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+label{
+  color: #747474;
+}
