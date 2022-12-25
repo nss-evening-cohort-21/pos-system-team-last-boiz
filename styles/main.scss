@@ -19,7 +19,7 @@ body {
   height: auto;
 }
 
-#store {
+#store{
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -33,10 +33,10 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background-color: #14A76C;
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   color: #272727;
 }
 
@@ -56,11 +56,30 @@ body {
   background-color: #ffe400;
 }
 
+#closed-order-btn{
+  background-color: #662d91;
+}
+
 .navbar{
   background-color: #747474;
 }
 
 .dom-btn{
+  
   height: 200px;
   width: 200px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 200px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+ 
+}
+
+#home-page{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+
 }
