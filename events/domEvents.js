@@ -27,7 +27,7 @@ const domEvents = (user) => {
     }
     if (e.target.id.includes('view-order-btn')) {
       console.warn('View Order');
-      getOrders().then(showOrders);
+      getOrders(user.uid).then(showOrders);
     }
 
     // Create an Order
