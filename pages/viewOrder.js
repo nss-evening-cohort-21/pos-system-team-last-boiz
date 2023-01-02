@@ -23,7 +23,6 @@ const showOrders = (array) => {
           <a href="#" id="order-details-btn--${obj.firebaseKey}" <button class="btn"><i class="fas fa-plus"></i> Details</button></a></a>
           <a href="#" id="update-order-btn--${obj.firebaseKey}" <button class="btn"><i class="fas fa-folder"></i> Update</button></a></a>
           <a href="#" id="delete-orders-btn--${obj.firebaseKey}" <button class="btn"><i class="fas fa-trash"></i></button> Delete</a>
-          <a${obj.closed ? '<span class="badge bg-danger"><i class="fas fa-lock" aria-hidden="true"></i></span>' : ''}</a>
         </div>
        </div>`;
   });
