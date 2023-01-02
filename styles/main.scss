@@ -105,6 +105,13 @@ body {
   justify-content: center;
 }
 
+#create-item{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
 
 .order-info-card{
   background-color: #ff652f;

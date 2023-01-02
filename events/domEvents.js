@@ -12,7 +12,7 @@ import { deleteSingleItem, getSingleItem } from '../api/itemData';
 import revenuePage from '../pages/revenuePage';
 import { getRevenue } from '../api/revenueData';
 
-const domEvents = () => {
+const domEvents = (user) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
     // DELETE ORDER
     if (e.target.id.includes('delete-orders-btn')) {
@@ -21,7 +21,7 @@ const domEvents = () => {
         console.warn('CLICKED ORDER', e.target.id);
         const [, firebaseKey] = (e.target.id.split('--'));
         deleteOrderItemsRelationship(firebaseKey).then(() => {
-          getOrders().then(showOrders);
+          getOrders(user.uid).then(showOrders);
         });
       }
     }
@@ -69,7 +69,7 @@ const domEvents = () => {
     // CLICK EVENT FOR SHOWING REVENUE PAGE
     if (e.target.id.includes('view-revenue-btn')) {
       console.warn('revenue');
-      getRevenue().then(revenuePage);
+      getRevenue(user.uid).then(revenuePage);
     }
 
     // TODO: CLICK EVENT FOR ADDING AN ITEM
@@ -109,7 +109,7 @@ const domEvents = () => {
         // console.warn(e.target.id.split('--'));
         const [, firebaseKey] = e.target.split('--');
         deleteOrderItemsRelationship(firebaseKey).then(() => {
-          getOrders().then(showOrders);
+          getOrders(user.uid).then(showOrders);
         });
       }
     }

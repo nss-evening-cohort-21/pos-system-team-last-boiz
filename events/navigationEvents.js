@@ -4,21 +4,21 @@ import createOrderForm from '../Forms/createOrderForm';
 import revenuePage from '../pages/revenuePage';
 import { getRevenue } from '../api/revenueData';
 
-const navigationEvents = () => {
+const navigationEvents = (user) => {
   document.querySelector('#view-order-btn').addEventListener('click', () => {
-    getOrders().then(showOrders);
+    getOrders(user.uid).then(showOrders);
   });
 
   document.querySelector('#create-order-btn').addEventListener('click', () => {
-    createOrderForm();
+    createOrderForm(user.uid);
   });
 
   document.querySelector('#closed-order-btn').addEventListener('click', () => {
-    closedOrders().then(showOrders);
+    closedOrders(user.uid).then(showOrders);
   });
 
   document.querySelector('#view-revenue-btn').addEventListener('click', () => {
-    getRevenue().then(revenuePage);
+    getRevenue(user.uid).then(revenuePage);
   });
 };
 

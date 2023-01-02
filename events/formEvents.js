@@ -10,7 +10,7 @@ import revenuePage from '../pages/revenuePage';
 import { showOrders } from '../pages/viewOrder';
 // import revenuePage from '../pages/revenuePage';
 
-const formEvents = () => {
+const formEvents = (user) => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
     e.preventDefault();
     // CLICK EVENT FOR SUBMITTING FORM FOR ADDING ORDER
@@ -21,12 +21,13 @@ const formEvents = () => {
         phone_number: document.querySelector('#phone_number').value,
         email: document.querySelector('#order-email').value,
         order_type: document.querySelector('#order-type').value,
+        uid: user.uid,
       };
       createOrder(payload).then(({ name }) => {
         console.warn(name);
         const patchPayload = { firebaseKey: name };
         updateOrder(patchPayload).then(() => {
-          getOrders().then(showOrders);
+          getOrders(user.uid).then(showOrders);
         });
       });
     }
@@ -39,9 +40,10 @@ const formEvents = () => {
         email: document.querySelector('#order-email').value,
         order_type: document.querySelector('#order-type').value,
         closed: document.querySelector('#closed').checked,
-        firebaseKey
+        firebaseKey,
+        uid: user.uid,
       };
-      updateOrder(payload).then(() => getOrders().then(showOrders));
+      updateOrder(payload).then(() => getOrders(user.uid).then(showOrders));
     }
 
     if (e.target.id.includes('submit-item')) {
@@ -50,7 +52,8 @@ const formEvents = () => {
         name: document.querySelector('#item-name').value,
         price: document.querySelector('#price').value,
         orderId: document.querySelector('#order-id').value,
-        firebaseKey
+        firebaseKey,
+        uid: user.uid,
       };
       console.warn(payload);
       createItems(payload).then(({ name }) => {
@@ -88,11 +91,12 @@ const formEvents = () => {
           total: itemTotal + tips,
           // date: currentDate,
           orderId: firebaseKey,
+          uid: user.uid
         };
         createRevenue(revenuePayload).then(({ name }) => {
           const patchPayload = { firebaseKey: name };
           updateRevenue(patchPayload).then(() => {
-            getRevenue().then(revenuePage);
+            getRevenue(user.uid).then(revenuePage);
           });
         });
       });
@@ -104,7 +108,7 @@ const formEvents = () => {
 
       // get single order (firebase key)
       updateOrder(orderPayload).then(() => {
-        getOrders().then(showOrders);
+        getOrders(user.uid).then(showOrders);
       });
     }
   });
