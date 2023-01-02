@@ -25,7 +25,7 @@ const createOrderForm = (obj = {}) => {
       <div class="form-check">
           <input type="checkbox" class="form-check-input" id="closed" value="${obj.closed ? 'checked' : ''}">
           <label class="form-check-label" for="closed">Closed</label>
-      </div>
+      </div> 
       
       
       <div>
