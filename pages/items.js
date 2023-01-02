@@ -14,12 +14,17 @@ const viewItems = (obj) => {
   renderToDOM('#order-details', btnString);
 
   let domString = `
-    <div class="card" style="width: 18rem;">
+    <div class="order-info-card"">
       <div class="card-header">
+      <i class="fas fa-user"></i>
+      <br>
         ${obj.name}
       </div>
       <ul class="list-group list-group-flush">
+      <hr>
+      <i class="fas fa-phone"></i>
         <li class="list-group-item">${obj.phone_number}</li>
+        <i class="fas fa-envelope"></i>
         <li class="list-group-item">${obj.email}</li>
       </ul>
     </div>`;
@@ -27,7 +32,7 @@ const viewItems = (obj) => {
   obj.itemsArray.forEach((item) => {
     domString += `
       <div class="card">
-        <div class="card-body" style="height: 180px;">
+        <div class="card-body">
           <h4 class="card-title">${item.name}</h4>
             <h6 class="card-title">${item.price}</h6>
             <hr>

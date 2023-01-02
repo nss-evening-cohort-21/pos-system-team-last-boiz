@@ -8,15 +8,15 @@ import navigationEvents from '../events/navigationEvents';
 import { getOrders } from '../api/orderData';
 import { showOrders } from '../pages/viewOrder';
 
-const startApp = () => {
-  domBuilder(); // BUILD THE DOM
-  showHomePage();
-  domEvents(); // ADD THE EVENT LISTENTERS TO THE DOM
-  formEvents(); // ADD FORM EVENT LISTENTERS TO THE DOM
+const startApp = (user) => {
+  domBuilder(user); // BUILD THE DOM
+  showHomePage(user);
+  domEvents(user); // ADD THE EVENT LISTENTERS TO THE DOM
+  formEvents(user); // ADD FORM EVENT LISTENTERS TO THE DOM
   navBar(); // DYNAMICALLY ADD THE NAV
   logoutButton(); // ADD THE LOGOUT BUTTON COMPONENT
-  navigationEvents(); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
+  navigationEvents(user); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
 };
-
 getOrders().then((order) => showOrders(order));
+
 export default startApp;

@@ -3,7 +3,7 @@
 
 
 body {
-  background-color: antiquewhite;
+  background-color: #272727;
   color: brown;
   text-align: center;
   margin-top: 100px;
@@ -17,4 +17,114 @@ body {
 #navBarLogo {
   width: 50px;
   height: auto;
+}
+
+#store{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+.card {
+  width: 250px;
+  height: 350;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #14A76C;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #272727;
+}
+
+.card-link {
+  color: #272727;
+}
+
+#create-order-btn{
+  background-color: #ff652f;
+}
+
+#view-revenue-btn{
+  background-color: #14A76C;
+}
+
+#view-order-btn{
+  background-color: #ffe400;
+}
+
+#closed-order-btn{
+  background-color: #662d91;
+}
+
+.navbar{
+  background-color: #747474;
+}
+
+.dom-btn{
+  
+  height: 200px;
+  width: 200px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 200px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+ 
+}
+
+#home-page{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+.form-group{
+  width: 500px;
+  color: #747474;
+}
+
+.form-select{
+  width: 500px;
+  color: #747474;
+}
+
+#order-type{
+  color: #747474
+}
+
+#create-order-container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#create-item{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+.order-info-card{
+  background-color: #ff652f;
+  color: black;
+  width: 250px;
+  height: 350;
+  border-radius: 10px;
+}
+
+.list-group{
+  background-color:#ff652f;
+}
+
+.list-group-item{
+  background-color: #ff652f;
 }
