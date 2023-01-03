@@ -3,44 +3,22 @@
 
 <image src="https://user-images.githubusercontent.com/29741570/205346767-a182560c-64a6-4cfa-80b3-0d64cf998242.png" style="height:300px;"></image></div>
 
-## Get Started
-**READ ALL INSTRUCTIONS BEFORE BEGINNING THIS PROJECT.** Take notes as you read.
+## About the User
+ This application is intedned as a merchant-side POS system to help manage imcoming orders. While we built it specifically for a Pizza restaurant, this architcture is adabptable to almost any beaterys' needs.
 
-Everything that needs to be done before coding starts.
+## Features
+* Able to login with Google Authentication.
+* Order details include options for customers to provide personal information including Name, Number, and eMail. The user is also able to select whether the order comes from a walk-in or by phone.
+* The user is able to add or remove items as well as update said items' name and price.
+* The user will be able to view all revenue made daily.
+* User will be able to select method of payment as well as include a tip with each order
 
-* **ERD** - Create an ERD to show the relationships between all of  your data
-* **Postman Collection** - Create a postman collection to store and test out all of your API calls.
-* **[Wireframes](https://www.figma.com/file/4y3EZddALuBR3ouSEM57Np/MVP?node-id=0%3A1)** - This is the basic MVP wireframe. You can choose to style how you wish.
-* **Flowchart** - Plan out the flow of your data through the application
-* **Github Issue Tickets** - Using the Project Instructions as a guide, create issue tickets for this project’s work.
-* **Github Milestones** - Separate those issue tickets into Milestones to plan out the work.
-
-## Definition of Done
-
-Do not submit this project until all of the following are complete:
-
-1. All items are completed in getting started
-1. MVP, defined by the Acceptance Criteria, has been completed
-1. The title of your application is visible in the browser tab
-1. The project has been deployed
-1. Loom video has been created
-1. `README.md` has been updated
-
-## Requirements
-
-Things to remember while coding out the project
-
-* Clean code - single responsibility principle
-* ES6 Modules bundled with webpack
-* No errors - linters should be clean
-* Bootstrap 5 for styling
-* Completely planned out - before each section you should be making new cards on your Github project board before you code
-* Wireframes are provided for you for MVP
-* You should have an ERD
-
-### Instructions
-
-* [MVP Definition - It Gets the Job Done](./instructions/mvp.md)
-* [Stretch Goals 1 - Filtering the Data](./instructions/stretch-1.md)
-* [Stretch Goals 2 - Dealing with Change](./instructions/stretch-2.md)
-* [Stretch Goals 3 - Play that Funky Music](./instructions/stretch-3.md)
+## Relevant Links
+* ERD Chart: https://dbdiagram.io/d/6387a046bae3ed7c4543e2a1
+* Deployed site: https://resplendent-basbousa-df2868.netlify.app/
+## Contributors
+* [Dro Demby](https://github.com/champayneblk)
+* [Danny Villalobos](https://github.com/crican1)
+* [James Reinhardt](https://github.com/james-reinhardt1)
+* [Tyler Eisen](https://github.com/Tyler-Eisen?tab=repositories)
+ 
