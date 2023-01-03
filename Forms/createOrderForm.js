@@ -21,13 +21,8 @@ const createOrderForm = (obj = {}) => {
       <label for="price">Email</label>
       <input type="text" class="form-control" id="order-email" placeholder="Email" value="${obj.email || ''}" required>
       </div>
-
-      <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="closed" value="${obj.closed ? 'checked' : ''}">
-          <label class="form-check-label" for="closed">Closed</label>
-      </div> 
-      
-      
+    
+  
       <div>
         <label for="type">Type</label> 
         <select id="order-type" class="form-select" aria-label="Default select example" required>

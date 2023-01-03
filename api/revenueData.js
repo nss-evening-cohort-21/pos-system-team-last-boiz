@@ -3,8 +3,8 @@ import client from '../utils/client';
 const endpoint = client.databaseURL;
 
 // GET REVENUE
-const getRevenue = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/revenue.json`, {
+const getRevenue = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/revenue.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -14,7 +14,7 @@ const getRevenue = () => new Promise((resolve, reject) => {
     .then((data) => {
       if (data) {
         const moreRevenue = Object.values(data);
-        const totalRevenue = moreRevenue.map((item) => item.total).reduce((a, b) => a + b, 0);
+        const totalRevenue = moreRevenue.map((item) => Number(item.total)).reduce((a, b) => a + b, 0);
         console.warn(totalRevenue);
         resolve(totalRevenue);
       } else {
@@ -51,19 +51,6 @@ const updateRevenue = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// DELETE REVENUE
-const deleteRevenue = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/revenue/${firebaseKey}.json`, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => resolve((data)))
-    .catch(reject);
-});
-
 export {
-  getRevenue, createRevenue, updateRevenue, deleteRevenue
+  getRevenue, createRevenue, updateRevenue
 };

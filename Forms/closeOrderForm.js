@@ -28,7 +28,7 @@ const closeOrderForm = (obj = {}) => {
     </div>
   `;
 
-  domString += `</select><button id="close-payment--view-revenue-btn" type="submit" class="btn btn-danger">Close Order
+  domString += `</select><button id="close-payment" type="submit" class="btn btn-danger">Close Order
     </button></form>`;
 
   renderToDOM('#order-container', domString);

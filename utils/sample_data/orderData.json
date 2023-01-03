@@ -5,7 +5,7 @@
     "email":"lantoinet0@example.com",
     "order_type":"phone",
     "firebaseKey":"-NIwYOaemnYSJmH_QXeN",
-    "closed": true,
+    "order_status": "open",
     "uid":null
   },
 
@@ -15,7 +15,7 @@
     "email":"hlabrom1@tinypic.com",
     "order_type":"phone",
     "firebaseKey":"-NIwYOah5f-IsAvAYsFh",
-    "closed": false,
+    "order_status": "open",
     "uid":null
   },
 
@@ -25,7 +25,7 @@
     "email":"cbolgar2@netscape.com",
     "order_type":"phone",
     "firebaseKey":"-NIwYOalHZiyqE1DSAV9",
-    "closed": true,
+    "order_status": "open",
     "uid":null
   },
 
@@ -35,7 +35,7 @@
     "email":"klikly3@meetup.com",
     "order_type":"phone",
     "firebaseKey":"-NIwYOaoAftHKbWSn6TY",
-    "closed": false,
+    "order_status": "open",
     "uid":null
   }
 }
