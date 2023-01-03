@@ -1,11 +1,11 @@
 import { deleteOrderItemsRelationship, getOrderDetails } from '../api/mergedData';
 import {
-  getOrders, getSingleOrder, closedOrders
+  getOrders, getSingleOrder
 } from '../api/orderData';
-import { showOrders } from '../pages/viewOrder';
+import { showOrders } from '../pages/orders';
 import createOrderForm from '../Forms/createOrderForm';
 import closeOrderForm from '../Forms/closeOrderForm';
-import viewItems from '../pages/items';
+import viewItems from '../pages/OrderDetails';
 import createEditItem from '../Forms/createEditItemForm';
 // import showRevenue from '../pages/revenue';
 import { deleteSingleItem, getSingleItem } from '../api/itemData';
@@ -53,19 +53,6 @@ const domEvents = (user) => {
       getSingleOrder(firebaseKey).then((obj) => closeOrderForm(obj));
     }
 
-    // CLICK EVENT FOR CLOSED ORDERS
-    if (e.target.id.includes('closed-order-btn')) {
-      console.warn('close order btn');
-      const [, firebaseKey] = (e.target.id.split('--'));
-      closedOrders(firebaseKey).then(revenuePage);
-    }
-
-    // if (e.target.id.includes('close-payment')) {
-    //   console.warn('close order btn');
-    //   const [, firebaseKey] = (e.target.id.split('--'));
-    //   closedOrders(firebaseKey).then(revenuePage);
-    // }
-
     // CLICK EVENT FOR SHOWING REVENUE PAGE
     if (e.target.id.includes('view-revenue-btn')) {
       console.warn('revenue');
@@ -85,10 +72,6 @@ const domEvents = (user) => {
       getSingleItem(firebaseKey).then((obj) => createEditItem(obj));
     }
 
-    // CLICK EVENT FOR DELETING AN ITEM
-    if (e.target.id.includes('delete-items')) {
-      console.warn('DELETE ITEM');
-    }
     // TODO: CLICK EVENT FOR DELETING An Item
     if (e.target.id.includes('delete-items-btn')) {
     // eslint-disable-next-line no-alert

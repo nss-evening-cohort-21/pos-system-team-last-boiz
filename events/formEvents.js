@@ -5,9 +5,9 @@ import {
 } from '../api/orderData';
 import { getRevenue, updateRevenue, createRevenue } from '../api/revenueData';
 // import showHomePage from '../pages/homePage';
-import viewItems from '../pages/items';
+import viewItems from '../pages/OrderDetails';
 import revenuePage from '../pages/revenuePage';
-import { showOrders } from '../pages/viewOrder';
+import { showOrders } from '../pages/orders';
 // import revenuePage from '../pages/revenuePage';
 
 const formEvents = (user) => {
@@ -21,6 +21,7 @@ const formEvents = (user) => {
         phone_number: document.querySelector('#phone_number').value,
         email: document.querySelector('#order-email').value,
         order_type: document.querySelector('#order-type').value,
+        order_status: 'open',
         uid: user.uid,
       };
       createOrder(payload).then(({ name }) => {
@@ -39,7 +40,7 @@ const formEvents = (user) => {
         phone_number: document.querySelector('#phone_number').value,
         email: document.querySelector('#order-email').value,
         order_type: document.querySelector('#order-type').value,
-        closed: document.querySelector('#closed').checked,
+        order_status: 'open',
         firebaseKey,
         uid: user.uid,
       };
@@ -102,7 +103,7 @@ const formEvents = (user) => {
       });
 
       const orderPayload = {
-        order_status: false,
+        order_status: 'Closed',
         firebaseKey,
       };
 

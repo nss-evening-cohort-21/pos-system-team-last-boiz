@@ -1,5 +1,5 @@
 import { getOrders, closedOrders } from '../api/orderData';
-import { showOrders } from '../pages/viewOrder';
+import { showOrders } from '../pages/orders';
 import createOrderForm from '../Forms/createOrderForm';
 import revenuePage from '../pages/revenuePage';
 import { getRevenue } from '../api/revenueData';

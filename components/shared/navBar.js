@@ -17,9 +17,6 @@ const navBar = () => {
             <a class="nav-link" href="#" id="create-order-btn">Create an Order</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" id="closed-order-btn">Closed Orders</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="#" id="view-revenue-btn">View Revenue</a>
           </li>
         </ul>

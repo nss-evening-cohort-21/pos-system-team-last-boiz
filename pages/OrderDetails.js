@@ -35,11 +35,14 @@ const viewItems = (obj) => {
         <div class="card-body">
           <h4 class="card-title">${item.name}</h4>
             <h6 class="card-title">${item.price}</h6>
-            <hr>
+            <hr>`;
+    if (obj.order_status === 'open') {
+      domString += `<div class="card-body">
             <i id="update-item-btn--${item.firebaseKey}" class="fas fa-edit btn btn-info"></i>
             <i id="delete-items-btn--${item.firebaseKey}" class="btn btn-danger fas fa-trash-alt"></i>
-        </div>
-      </div>`;
+            </div>
+            </div>`;
+    }
   });
   renderToDOM('#store', domString);
 };
