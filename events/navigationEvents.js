@@ -1,4 +1,4 @@
-import { getOrders, closedOrders } from '../api/orderData';
+import { getOrders } from '../api/orderData';
 import { showOrders } from '../pages/orders';
 import createOrderForm from '../Forms/createOrderForm';
 import revenuePage from '../pages/revenuePage';
@@ -11,10 +11,6 @@ const navigationEvents = (user) => {
 
   document.querySelector('#create-order-btn').addEventListener('click', () => {
     createOrderForm(user.uid);
-  });
-
-  document.querySelector('#closed-order-btn').addEventListener('click', () => {
-    closedOrders(user.uid).then(showOrders);
   });
 
   document.querySelector('#view-revenue-btn').addEventListener('click', () => {
